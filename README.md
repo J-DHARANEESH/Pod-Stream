@@ -108,15 +108,20 @@ We welcome contributions to **PodStream**! Whether it's fixing bugs, improving U
 * Link related issues in your PR if applicable
 
 
-## 👤 About the Owner
+## 👤 Author
 
 **Owner:** Dharaneesh J<br>
 **Role:** Developer, Designer, and Maintainer of PodStream
 
 If you have any feedback, ideas, or just want to say hi—feel free to open an issue or reach out!
 
+## Contact
 
-✨ PodStream – Discover, stream, and enjoy your favorite podcasts wherever you are!
+For questions or collaboration, please reach out:
+**Email:** j.dharaneesh12@gmail.com<br>
+**GitHub:** https://github.com/J-DHARANEESH
+
+
 
 
 
