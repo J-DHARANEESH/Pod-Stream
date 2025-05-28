@@ -1,0 +1,20 @@
+<div class="player-container">
+  <h2 class="episode-title">{{ currentEpisode.title }}</h2>
+  <p class="episode-date">{{ currentEpisode.pubDate }}</p>
+
+  <audio #audioPlayer controls [src]="currentEpisode.audioUrl" autoplay class="audio-player"></audio>
+
+  <div class="episode-description" [innerHTML]="currentEpisode?.description || '' | safeHtml"></div>
+
+  <div class="control-buttons">
+    <button mat-raised-button color="primary" (click)="previous()" [disabled]="currentIndex === 0">
+      ⬅ Previous
+    </button>
+    <button mat-raised-button color="accent" (click)="next()" [disabled]="currentIndex === episodes.length - 1">
+      Next ➡
+    </button>
+    <button mat-raised-button color="warn" (click)="close()">
+      ✖ Close
+    </button>
+  </div>
+</div>

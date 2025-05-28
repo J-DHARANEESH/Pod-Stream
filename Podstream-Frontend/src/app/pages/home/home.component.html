@@ -1,0 +1,58 @@
+
+
+<!-- Loader Overlay -->
+<div class="loader-backdrop" *ngIf="isLoading || errorMessage">
+  
+  <!-- Spinner shown directly without box when loading -->
+  <ng-container *ngIf="isLoading && !errorMessage">
+    <div class="loading-spinner">
+      <mat-spinner diameter="50" color="accent"></mat-spinner>
+      <p class="processing-text">
+        Please wait we are Fetching your Podcasts
+        <span class="typing-dots"><span></span><span></span><span></span></span>
+      </p>
+    </div>
+  </ng-container>
+
+  <!-- Error container shown only when there's an error -->
+  <div class="loader-container" *ngIf="errorMessage">
+    <mat-icon class="error-icon">error_outline</mat-icon>
+    <p class="error-text">{{ errorMessage }}</p>
+    <button mat-button color="warn" (click)="errorMessage = null">Close</button>
+  </div>
+
+</div>
+<!-- Top bar with search shown only after searching -->
+<mat-toolbar color="primary" class="top-bar" *ngIf="hasSearched" >
+  <span class="app-title" *ngIf="hasSearched" >PodStream 🎧</span>
+
+  <div class="top-search-field" *ngIf="hasSearched">
+    <mat-form-field appearance="fill" class="top-search"> <input matInput placeholder="Search podcasts..." [(ngModel)]="searchTerm" (keyup.enter)="onSearch()" /> </mat-form-field>
+  </div>
+</mat-toolbar>
+
+<!-- Centered search like Google -->
+<div class="center-search" *ngIf="!hasSearched">
+  <div class="app-name">PodStream 🎧</div>
+
+  <div class="center-search-field">
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        placeholder="Search podcasts..."
+        [(ngModel)]="searchTerm"
+        (keyup.enter)="onSearch()"
+      />
+    </mat-form-field>
+  </div>
+
+  <!-- <button mat-raised-button color="accent" (click)="onSearch()">Search</button> -->
+   <div class="description">
+    PodStream is your casual space for discovering podcasts across genres. Search, stream, and enjoy trending and timeless episodes with a clean and intuitive interface – wherever you are.
+  </div>
+</div>
+
+<!-- Display list after search -->
+<div *ngIf="hasSearched">
+  <app-podcast-list [podcasts]="podcasts"></app-podcast-list>
+</div>

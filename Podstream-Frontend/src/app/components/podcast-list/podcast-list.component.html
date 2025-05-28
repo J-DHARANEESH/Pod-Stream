@@ -1,0 +1,16 @@
+<div class="podcast-grid">
+  <mat-card *ngFor="let p of podcasts" class="podcast-card">
+    <img mat-card-image [src]="p.artworkUrl100" alt="{{ p.trackName }}" />
+    
+    <mat-card-content>
+      <h3 class="podcast-title">{{ p.trackName }}</h3>
+      <p class="podcast-artist">{{ p.artistName }}</p>
+    </mat-card-content>
+    
+    <mat-card-actions align="end">
+      <button mat-flat-button color="primary" (click)="openEpisodesDialog(p)">
+        View Episodes
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

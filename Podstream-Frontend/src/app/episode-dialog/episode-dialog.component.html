@@ -1,0 +1,28 @@
+<div class="dialog-wrapper">
+  <h2 mat-dialog-title class="dialog-title">Episodes</h2>
+
+  <mat-dialog-content class="episode-list">
+    <mat-nav-list>
+      <mat-list-item 
+        *ngFor="let ep of episodes; let i = index" 
+        (click)="openPlayerDialog(i)" 
+        class="episode-item"
+        tabindex="0"
+        role="button"
+        [attr.aria-label]="'Play episode ' + ep.title"
+      >
+        <div class="episode-info">
+          <h4 class="episode-title">{{ ep.title }}</h4>
+          <small class="episode-date">{{ ep.pubDate | date:'mediumDate' }}</small>
+        </div>
+        <!-- <mat-icon class="play-icon" aria-hidden="true">play_circle_filled</mat-icon> -->
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-flat-button color="primary" (click)="closeDialog()" aria-label="Close episode list">
+      Close
+    </button>
+  </mat-dialog-actions>
+</div>
